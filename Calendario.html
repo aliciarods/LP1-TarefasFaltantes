@@ -1,0 +1,67 @@
+<html>
+  <body bgcolor="yellow">
+    <script language="javascript">
+    
+     document.write("<h2>Instituto Federal de Educação, Ciência e Tecnologia de São Paulo. </h2>");
+     document.write("<h2>Aluna: Alicia da Silva Rodrigues. Prontuário: CB301326X. </h2>");
+     document.write("<h2>Curso: LP1. Professor: Marco Aurélio. Turma: 148. </h2><br>");
+
+     var umaData, ano, mes, d, corfnt, corfdo;
+
+     ano = parseInt(window.prompt("Informe um ano: "));
+     mes = parseInt(window.prompt("Informe um mês: "));
+
+     umaData = new Date();
+     umaData.setDate(1);
+     umaData.setMonth(mes-1);
+     umaData.setFullYear(ano);
+
+  document.write("<h1>" + umaData + "</h1>");
+  document.write("<br>");
+
+  document.write("<table border=5 width=800px>");
+
+  for(d=2; d<=30; ++d)
+  {
+     if (umaData.getDay()==0)
+     {
+      corfdo="cyan";
+      corfnt="violet";
+     }
+     else
+     {
+      corfdo="orange";
+      corfnt="white";
+     }
+   document.write("<tr bgcolor=" + corfdo + ">");
+   document.write("<td width=250 align=center>");
+   document.write("<font face=arial size=6 color=" + corfnt + ">" + 
+                  umaData.getDate() + "/" + 
+                  (umaData.getMonth()+1) + "/" + 
+                  umaData.getFullYear() + "</font>");
+   document.write("</td>");
+
+   document.write("<td width=500 align=center>");
+   document.write("<font face=arial size=6 color=" + corfnt + ">");
+   switch (umaData.getDay())
+   {
+     case 0: document.write("Domingo"); break;
+     case 1: document.write("Segunda"); break;
+     case 2: document.write("Terça"); break;
+     case 3: document.write("Quarta"); break;
+     case 4: document.write("Quinta"); break;
+     case 5: document.write("Sexta"); break;
+     case 6: document.write("Sábado"); break;
+   }
+   document.write("</font>");
+   document.write("</td>");
+   document.write("</tr>");
+
+   umaData.setDate(d);
+}
+
+document.write("</table>");
+</script>
+</body>
+
+</html>
